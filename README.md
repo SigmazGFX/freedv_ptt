@@ -14,5 +14,4 @@ Start the sBitx radio software and allow it to display the waterfall
 Invoke the application with the FreeDV_PTT desktop icon.
 
 Please make sure to click the settings button and enter your callsign.
-
-Screenshot 2024-06-01 183611.png
+![alt text](https://github.com/SigmazGFX/FreeDV_PTT/blob/main/Screenshot%202024-06-01%20183611.png)
