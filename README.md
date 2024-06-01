@@ -8,7 +8,7 @@ copy this .deb file to your sBitx and invoke the command: dpkg -i freedv_ptt.deb
 
 (dpkg -i --force-all freedv_ptt.deb to reinstall)
 
-This .deb file will install the required codec2 library and control coponents.
+This .deb file will install the required codec2 library and control components.
 
 Start the sBitx radio software and allow it to display the waterfall
 Invoke the application with the FreeDV_PTT desktop icon.
