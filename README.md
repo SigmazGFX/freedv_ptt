@@ -10,8 +10,9 @@ copy this .deb file to your sBitx and invoke the command: dpkg -i freedv_ptt.deb
 
 This .deb file will install the required codec2 library and control components.
 
-Start the sBitx radio software and allow it to display the waterfall
-Invoke the application with the FreeDV_PTT desktop icon.
+1. Plug in your USB headset
+2. Start the sBitx radio software and allow it to display the waterfall
+3. Invoke the application with the FreeDV_PTT desktop icon.
 
 Please make sure to click the settings button and enter your callsign.
 ![alt text](https://github.com/SigmazGFX/FreeDV_PTT/blob/main/Screenshot%202024-06-01%20183611.png)
