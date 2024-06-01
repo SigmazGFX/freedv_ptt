@@ -18,4 +18,5 @@ Also, Be sure to click the settings button and enter your callsign.
 
 ![alt text](https://github.com/SigmazGFX/FreeDV_PTT/blob/main/Screenshot%202024-06-01%20183611.png)
 
-Note: If at any time the radio fails to respond to a TX assertion, Stop both FreeDV_PTT and sBitx then repeat step 2 & 3.
+Note: Occasionally, the sBitx will refuse to respond to the application. This usually happens if you close and re-open FreeDV_PTT more than a few times.
+If the radio fails to respond to a TX assertion, Stop both FreeDV_PTT and sBitx then repeat the above steps 2 & 3.
