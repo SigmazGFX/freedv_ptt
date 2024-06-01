@@ -13,4 +13,4 @@ This .deb file will install the required codec2 library and control components.
 Start the sBitx radio software and allow it to display the waterfall
 Invoke the application with the FreeDV_PTT desktop icon.
 
-Please make sure to click the settings button and enter your callsign before transmitting.
+Please make sure to click the settings button and enter your callsign.
