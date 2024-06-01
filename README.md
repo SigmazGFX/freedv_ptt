@@ -24,3 +24,7 @@ Occasionally the sBitx will refuse to respond to the application.
 This usually happens if you close and re-open FreeDV_PTT more than a few times.
 
 If the radio fails to respond to a TX assertion, Stop both FreeDV_PTT and sBitx then repeat the above steps 2 & 3.
+
+
+...I like free, But what the heck is FreeDV? 
+  https://freedv.org/
