@@ -28,3 +28,4 @@ If the radio fails to respond to a TX assertion, Stop both FreeDV_PTT and sBitx 
 
 ...I like free, But what the heck is FreeDV? 
   https://freedv.org/
+![image](https://github.com/SigmazGFX/FreeDV_PTT/assets/4202780/4cff3b30-e3de-4331-9e91-5adac49e4e6c)
