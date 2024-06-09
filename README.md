@@ -4,9 +4,7 @@ FreeDV_PTT for sBitx 2.45:
 This is  a Codec2/FreeDV control application for use with the sBitx hybrid sdr transceiver.
 
 To install,
-copy this .deb file to your sBitx and invoke the command: dpkg -i freedv_ptt.deb 
-
-(dpkg -i --force-all freedv_ptt.deb to reinstall)
+copy this .deb file to your sBitx and invoke the command: sudo dpkg -i freedv_ptt.deb 
 
 This .deb file will install the required codec2 library and control components.
 
