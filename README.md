@@ -5,8 +5,11 @@ This is  a Codec2/FreeDV control application for use with the sBitx hybrid SDR t
 
 To install,
 Clone this repo to your /home/pi folder with:
+
 git clone https://github.com/SigmazGFX/freedv_ptt 
+
 cd /home/pi/freedv_ptt
+
 Run the command: sudo dpkg -i freedv_ptt.deb
 
 This .deb file will install the required codec2 library and control components.
