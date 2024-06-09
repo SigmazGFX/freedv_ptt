@@ -4,18 +4,20 @@ FreeDV_PTT for sBitx 2.45:
 This is  a Codec2/FreeDV control application for use with the sBitx hybrid SDR transceiver.
 
 To install,
-Clone this repo to your /home/pi folder with:
+clone this repo to your /home/pi folder with:
+
+cd ~
 
 git clone https://github.com/SigmazGFX/freedv_ptt 
 
-cd /home/pi/freedv_ptt
+cd ~/freedv_ptt
 
 Run the command: sudo dpkg -i freedv_ptt.deb
 
 This .deb file will install the required codec2 library and control components.
 
 1. Plug in your USB headset
-2. Start the sBitx radio software and allow it to display the waterfall
+2. Start the sBitx radio software and allow it to display the waterfallcd ~/freedv_ptt
 3. Invoke the application with the FreeDV_PTT desktop icon.
 
 Also, Be sure to click the settings button and enter your callsign.
