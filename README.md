@@ -38,6 +38,7 @@ There is a small issue with the Hamlib net implementation and while I do have a 
 If the radio fails to respond to a TX command, Stop both FreeDV_PTT and sBitx and then repeat the above steps 2 & 3.
 
 
-...I like free, But what the heck is FreeDV? 
-  https://freedv.org/
+...I like free, But what is FreeDV? 
+
+To learn more about this amazing mode check here =>  https://freedv.org/
 ![image](https://github.com/SigmazGFX/FreeDV_PTT/assets/4202780/4cff3b30-e3de-4331-9e91-5adac49e4e6c)
