@@ -18,6 +18,8 @@ Run the command: sudo dpkg -i freedv_ptt.deb
 
 This .deb file will install the required codec2 library and control components.
 
+Updates can be done easily with ./update.sh located in the ~/freedv_ptt folder.
+
 1. Plug in your USB headset
 2. Start the sBitx radio software and allow it to display the waterfall 
 3. Invoke the application with the FreeDV_PTT desktop icon.
