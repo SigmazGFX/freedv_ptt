@@ -22,7 +22,7 @@ This .deb file will install the required codec2 library and control components.
 
 Also, Be sure to click the settings button and enter your callsign.
 
-![alt text](https://github.com/SigmazGFX/FreeDV_PTT/blob/main/Screenshot%202024-06-01%20183611.png)
+![alt text](https://github.com/SigmazGFX/FreeDV_PTT/blob/main/245screencap.png)
 
 Note: 
 Occasionally the sBitx will refuse to respond to the application.
