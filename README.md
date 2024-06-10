@@ -1,7 +1,9 @@
 
 FreeDV_PTT 2.45 for 64bit sBitx:
 
-This is  a Codec2/FreeDV control application for use with the sBitx hybrid SDR transceiver.
+This is  a Codec2/FreeDV control application for use with the sBitx hybrid SDR transceiver running an updated 64bit OS release.
+
+This will NOT run on 32bit systems.
 
 To install,
 clone this repo to your /home/pi folder with:
