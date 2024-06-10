@@ -33,6 +33,8 @@ Occasionally the sBitx will refuse to respond to the application.
 
 This usually happens if you close and re-open FreeDV_PTT more than a few times.
 
+There is a small issue with the Hamlib net implementation and while I do have a way around this, It requires an update to the sbitx_gtk.c file.
+
 If the radio fails to respond to a TX assertion, Stop both FreeDV_PTT and sBitx then repeat the above steps 2 & 3.
 
 
