@@ -1,5 +1,5 @@
 
-FreeDV_PTT 2.45 for 64bit sBitx:
+FreeDV_PTT 2.4.6 for 64bit sBitx:
 
 This is  a Codec2/FreeDV control application for use with the sBitx hybrid SDR transceiver running an updated 64bit OS release.
 
