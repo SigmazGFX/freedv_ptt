@@ -1,5 +1,5 @@
 
-FreeDV_PTT 2.4.5 for 64bit sBitx:
+FreeDV_PTT 2.4.6 for 64bit sBitx:
 
 This is  a Codec2/FreeDV control application for use with the sBitx hybrid SDR transceiver running an updated 64bit OS release.
 
@@ -19,7 +19,7 @@ Run the command: sudo dpkg -i freedv_ptt.deb
 This .deb file will install the required codec2 library and control components.
 
 Updates can be done easily with ./update.sh located in the ~/freedv_ptt folder.
-
+If you have already been running 2.45 please delete the config.ini file from your freedv_ptt folder, a new format file will be created.
 1. Plug in your USB headset
 2. Start the sBitx radio software and allow it to display the waterfall 
 3. Invoke the application with the FreeDV_PTT desktop icon.
