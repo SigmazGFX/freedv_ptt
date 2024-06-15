@@ -214,12 +214,7 @@ void show_message_dialog(const char *message) {
 
     gtk_init(NULL, NULL);
 
-    dialog = gtk_dialog_new_with_buttons("System Error",
-                                         NULL,
-                                         flags,
-                                         "OK",
-                                         GTK_RESPONSE_OK,
-                                         NULL);
+    dialog = gtk_dialog_new_with_buttons("System Error", NULL, flags, "OK", GTK_RESPONSE_OK, NULL);
 
     content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
     label = gtk_label_new(message);
