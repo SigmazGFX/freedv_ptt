@@ -85,45 +85,45 @@ GtkWidget * selected_menu_item = NULL; // Used to track selected freq dropdown
 
 
 // Function to start the Python script 
-//void start_python_script() {
-//    if ((python_pid = fork()) == 0) {
-//        // Child process: Execute the Python script
-//        execl("/usr/bin/python3", "python3", "/home/pi/freedv_ptt/sioclient.py", NULL);
-//        perror("Failed to start Python script");
-//        exit(EXIT_FAILURE);
-//    } else if (python_pid < 0) {
-//        perror("Failed to fork");
-//        exit(EXIT_FAILURE);
-//    } else {
-//        printf("Started Python script with PID: %d\n", python_pid);
-//    }
-//}
-
-
-// Function to start the -=(Compiled)=- Python script 
 void start_python_script() {
     if ((python_pid = fork()) == 0) {
-        // Child process: Create a new process group
-        setpgid(0, 0);
-        char *argv[] = {"/home/pi/freedv_ptt/assets/sioclient", NULL};
-        char *envp[] = { "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", NULL };
-
-        // Redirect output to a log file
-        freopen("/tmp/sioclient_stdout.log", "w", stdout);
-        freopen("/tmp/sioclient_stderr.log", "w", stderr);
-
-        execve(argv[0], argv, envp);
-        perror("Failed to start Python executable");
+        // Child process: Execute the Python script
+        execl("/usr/bin/python3", "python3", "/home/pi/freedv_ptt/sioclient.py", NULL);
+        perror("Failed to start Python script");
         exit(EXIT_FAILURE);
     } else if (python_pid < 0) {
         perror("Failed to fork");
         exit(EXIT_FAILURE);
     } else {
-        printf("Started Python executable with PID: %d\n", python_pid);
-        // Set the parent process to be the leader of the process group
-        setpgid(python_pid, python_pid);
+        printf("Started Python script with PID: %d\n", python_pid);
     }
 }
+
+
+//// Function to start the -=(Compiled)=- Python script 
+//void start_python_script() {
+//    if ((python_pid = fork()) == 0) {
+//        // Child process: Create a new process group
+//        setpgid(0, 0);
+//        char *argv[] = {"/home/pi/freedv_ptt/assets/sioclient", NULL};
+//        char *envp[] = { "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", NULL };
+
+//        // Redirect output to a log file
+//        freopen("/tmp/sioclient_stdout.log", "w", stdout);
+//        freopen("/tmp/sioclient_stderr.log", "w", stderr);
+
+//        execve(argv[0], argv, envp);
+//        perror("Failed to start Python executable");
+//        exit(EXIT_FAILURE);
+//    } else if (python_pid < 0) {
+//        perror("Failed to fork");
+//        exit(EXIT_FAILURE);
+//    } else {
+//        printf("Started Python executable with PID: %d\n", python_pid);
+//        // Set the parent process to be the leader of the process group
+//        setpgid(python_pid, python_pid);
+//    }
+//}
 
 // Function to send IPC command
 void send_ipc_command(const char *command) {
