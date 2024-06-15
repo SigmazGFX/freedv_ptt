@@ -38,7 +38,7 @@ def load_config(filename="/home/pi/freedv_ptt/config.ini"):
     if "fdvmode" in config_data:
         current_mode = config_data["fdvmode"].strip()
     else:
-        current_mode = "700X"  # Default value if fdvmode is not specified
+        current_mode = "700D"  # Default value if fdvmode is not specified
 
 
 # Load fdvmode from config.ini
