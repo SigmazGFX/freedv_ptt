@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.DEBUG)
 sio = socketio.Client(logger=False, engineio_logger=False)
 
 # Global variables to store current mode and other settings
-current_mode = "700X"  # Initial mode
+current_mode = "700D"  # Initial mode
 config_data = {
     "fdvmode": "700D",
     "grid_square": "AA00aa",
