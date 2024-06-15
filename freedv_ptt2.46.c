@@ -173,7 +173,13 @@ void handle_termination(int signum) {
     close(sockfd_server);  
     exit(0);
 }
-
+// Function to send commands to the Hamlib Net server
+void send_command(const char * command) {
+  if (send(sockfd_server, command, strlen(command), 0) < 0) {
+    perror("Send failed");
+    exit(EXIT_FAILURE);
+  }
+}
 
 // Function to check if the configuration file exists
 int config_file_exists() {
@@ -242,14 +248,6 @@ void create_default_config() {
     fclose(file);
   } else {
     perror("Failed to create configuration file");
-  }
-}
-
-// Function to send commands to the Hamlib Net server
-void send_command(const char * command) {
-  if (send(sockfd_server, command, strlen(command), 0) < 0) {
-    perror("Send failed");
-    exit(EXIT_FAILURE);
   }
 }
 
@@ -367,7 +365,6 @@ void save_release_version(const char *release_version) {
   save_config("version", full_version);
 }
 
-//---------------
 
 char * load_fdvmode() {
   static char fdvmode[256];
@@ -376,7 +373,6 @@ char * load_fdvmode() {
   return fdvmode;
 }
 
-//------------------------
 void save_callsign(const char * callsign) {
   save_config("callsign", callsign);
 }
