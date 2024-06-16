@@ -159,6 +159,14 @@ void send_ipc_command(const char *command) {
     close(sock);
 }
 
+// Function to send commands to the Hamlib Net server
+void send_command(const char * command) {
+  if (send(sockfd_server, command, strlen(command), 0) < 0) {
+    perror("Send failed");
+    exit(EXIT_FAILURE);
+  }
+}
+
 void handle_termination(int signum) {
     // Terminate the Python script process if it's running
     if (python_pid > 0) {
@@ -172,13 +180,6 @@ void handle_termination(int signum) {
     // Close the socket opened to the Hamlib server
     close(sockfd_server);  
     exit(0);
-}
-// Function to send commands to the Hamlib Net server
-void send_command(const char * command) {
-  if (send(sockfd_server, command, strlen(command), 0) < 0) {
-    perror("Send failed");
-    exit(EXIT_FAILURE);
-  }
 }
 
 // Function to check if the configuration file exists
@@ -365,7 +366,6 @@ void save_release_version(const char *release_version) {
   save_config("version", full_version);
 }
 
-
 char * load_fdvmode() {
   static char fdvmode[256];
   load_config("fdvmode", fdvmode, "700D");
@@ -383,6 +383,7 @@ char * load_callsign() {
   printf("Callsign from config file: %s\n", callsign);
   return callsign;
 }
+
 void save_grid_square(const char * grid_square) {
   save_config("grid_square", grid_square);
 }
@@ -479,7 +480,7 @@ void on_tx_button_clicked(GtkButton * button, gpointer data) {
       }
       char tx_command[256];
 
-      // Buffer included to reduce underrruns ( This buffer will induce approx 1 second of latency to the audio stream. )
+      // Buffer included to reduce underruns ( This buffer could induce approx 1 second of latency to the audio stream depending on system load.)
       sprintf(tx_command, "arecord -f S16_LE -c 1 -r 8000 -D plughw:CARD=5,DEV=0 | sox -t raw -r 8000 -e signed -b 16 -c 1 - -t raw - vol %ddB | ./freedv_tx %s --reliabletext %s - - | aplay -f S16_LE -D plughw:CARD=2,DEV=0 --buffer-size=8192", input_level, mode, callsign);
 
       printf("Executing TX command: %s\n", tx_command);
@@ -523,7 +524,7 @@ void on_rx_button_clicked(GtkButton * button, gpointer data) {
       char rx_command[256];
       // Modify the rx_command string to include the squelch level argument
       sprintf(rx_command, "arecord -f S16_LE -c 1 -r 8000 -D plughw:CARD=1,DEV=1 |./freedv_rx %s --squelch %d - - -| aplay -f S16_LE -D plughw:CARD=5,DEV=0", mode, squelch_level);
-      //sprintf(rx_command, "arecord -f S16_LE -c 1 -r 8000 -D plughw:CARD=1,DEV=1 |./freedv_rx %s --squelch %d --reliabletext --txtrx received_text.txt -v - - | aplay -f S16_LE -D plughw:CARD=5,DEV=0", mode, squelch_level);
+      //sprintf(rx_command, "arecord -f S16_LE -c 1 -r 8000 -D plughw:CARD=1,DEV=1 |./freedv_rx %s --squelch %d --reliabletext --txtrx txtrx.tmp -v - - | aplay -f S16_LE -D plughw:CARD=5,DEV=0", mode, squelch_level);
 
       printf("Executing RX command: %s\n", rx_command);
       execl("/bin/sh", "sh", "-c", rx_command, NULL);
@@ -755,16 +756,16 @@ void change_mode(const char * frequency) {
     mode_command = "m DIGITAL";
   }
 
-  char command[20]; // Adjust size as needed
-  sprintf(command, "%s", mode_command); // Format the command
+  // Format the mode command
+  char command[20]; 
+  sprintf(command, "%s", mode_command); 
 
   // Send the command
   if (send(sockfd_telnet, command, strlen(command), 0) < 0) {
     perror("Send command failed");
     exit(EXIT_FAILURE);
   }
-
-  printf("Changing mode to: %s\n", mode_command); //  Report changing the mode
+  printf("Changing mode to: %s\n", mode_command); //  Report changing the radio mode to console
 
   // Define delay in milliseconds (200 milliseconds = 0.2 seconds)
   struct timespec delay = {
@@ -775,11 +776,12 @@ void change_mode(const char * frequency) {
   // Sleep for 200 milliseconds between commands
   nanosleep( & delay, NULL);
 }
+
 void change_frequency(const char * frequency) {
   // Telnet command to change frequency
-  char command[20]; // Adjust size as needed
-
-  sprintf(command, "f %s", frequency); // Format the command
+  // Format the command
+  char command[20];
+  sprintf(command, "f %s", frequency);
 
   // Define delay in milliseconds (200 milliseconds = 0.2 seconds)
   struct timespec delay = {
