@@ -10,7 +10,7 @@ clone this repo to your /home/pi folder with:
 
 cd ~
 
-git clone https://github.com/SigmazGFX/freedv_ptt <- note the lowercase letters.. this matters..
+git clone https://github.com/SigmazGFX/freedv_ptt <- note the case of the letters.. this matters..
 
 cd ~/freedv_ptt
 
